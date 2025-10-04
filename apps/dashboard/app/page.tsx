@@ -24,7 +24,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Triplone Web!
+            Triplone Dashboard!
           </a>
         </h1>
         <div className="mt-4 text-lg text-center sm:text-left max-w-[700px]">
