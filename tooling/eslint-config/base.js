@@ -1,39 +1,32 @@
-module.exports = {
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-  ],
-  parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint", "import"],
-  rules: {
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
-    ],
-    "@typescript-eslint/no-explicit-any": "warn",
-    "import/order": [
-      "error",
-      {
-        groups: [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index",
-        ],
-        "newlines-between": "always",
-        alphabetize: { order: "asc" },
-      },
-    ],
+import js from "@eslint/js"
+import eslintConfigPrettier from "eslint-config-prettier"
+import onlyWarn from "eslint-plugin-only-warn"
+import turboPlugin from "eslint-plugin-turbo"
+import tseslint from "typescript-eslint"
+
+/**
+ * A shared ESLint configuration for the repository.
+ *
+ * @type {import("eslint").Linter.Config}
+ * */
+export const config = [
+  js.configs.recommended,
+  eslintConfigPrettier,
+  ...tseslint.configs.recommended,
+  {
+    plugins: {
+      turbo: turboPlugin,
+    },
+    rules: {
+      "turbo/no-undeclared-env-vars": "warn",
+    },
   },
-  ignorePatterns: [
-    "node_modules/",
-    "dist/",
-    ".next/",
-    "out/",
-    "build/",
-    ".turbo/",
-  ],
-};
+  {
+    plugins: {
+      onlyWarn,
+    },
+  },
+  {
+    ignores: ["dist/**"],
+  },
+]
