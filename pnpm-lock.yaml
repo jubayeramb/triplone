@@ -26,6 +26,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@triplone/tailwind-config':
+        specifier: workspace:*
+        version: link:../../tooling/tailwind-config
       next:
         specifier: 15.5.4
         version: 15.5.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -87,6 +90,15 @@ importers:
       eslint-plugin-react-hooks:
         specifier: ^6.1.1
         version: 6.1.1(eslint@9.37.0(jiti@2.6.1))
+
+  tooling/tailwind-config:
+    devDependencies:
+      '@tailwindcss/postcss':
+        specifier: ^4
+        version: 4.1.14
+      tailwindcss:
+        specifier: ^4
+        version: 4.1.14
 
   tooling/typescript-config: {}
 

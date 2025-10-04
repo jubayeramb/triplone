@@ -1,5 +1,3 @@
-const config = {
-  plugins: ["@tailwindcss/postcss"],
-};
+import { postcssConfig } from "@triplone/tailwind-config/postcss";
 
-export default config;
+export default postcssConfig;
