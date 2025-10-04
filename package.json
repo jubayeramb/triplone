@@ -1,0 +1,34 @@
+{
+  "name": "triplone",
+  "version": "1.0.0",
+  "description": "Your all-in-one solution for managing and sharing trip plans with friends and family.",
+  "author": "Jubayer Al Mamun",
+  "keywords": [],
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "db:generate": "turbo run db:generate",
+    "db:migrate": "turbo run db:migrate",
+    "db:push": "turbo run db:push",
+    "db:studio": "turbo run db:studio"
+  },
+  "devDependencies": {
+    "@turbo/gen": "^2.5.8",
+    "eslint": "^9.37.0",
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.8",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@10.18.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=10.18.0"
+  }
+}
