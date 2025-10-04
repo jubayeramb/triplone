@@ -17,7 +17,9 @@
     "db:generate": "turbo run db:generate",
     "db:migrate": "turbo run db:migrate",
     "db:push": "turbo run db:push",
-    "db:studio": "turbo run db:studio"
+    "db:studio": "turbo run db:studio",
+    "dev:web": "turbo run dev --filter=web",
+    "dev:dash": "turbo run dev --filter=dashboard"
   },
   "devDependencies": {
     "@turbo/gen": "^2.5.8",
