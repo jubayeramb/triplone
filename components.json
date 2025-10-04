@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "tooling/tailwind-config/global.css",
+    "baseColor": "slate",
+    "cssVariables": true
+  },
+  "iconLibrary": "lucide",
+  "aliases": {
+    "components": "@triplone/ui/components",
+    "utils": "@triplone/ui/lib/utils",
+    "hooks": "@triplone/ui/hooks",
+    "lib": "@triplone/ui/lib",
+    "ui": "@triplone/ui/components"
+  }
+}

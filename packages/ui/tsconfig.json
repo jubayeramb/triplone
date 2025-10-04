@@ -1,0 +1,11 @@
+{
+  "extends": "@triplone/typescript-config/react-library.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@triplone/ui/*": ["./src/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "eslint.config.js", "postcss.config.mjs"]
+}
