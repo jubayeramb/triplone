@@ -83,11 +83,7 @@ export default function SettingsPage() {
                     onClick={() => setShowNewPassword(!showNewPassword)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                   >
-                    {showNewPassword ? (
-                      <EyeOff className="h-4 w-4" />
-                    ) : (
-                      <Eye className="h-4 w-4" />
-                    )}
+                    {showNewPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
                 </div>
               </div>
@@ -126,7 +122,9 @@ export default function SettingsPage() {
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-semibold text-gray-900">Two-Factor Authentication</h3>
-              <p className="text-sm text-gray-500">Add an extra layer of security to your account</p>
+              <p className="text-sm text-gray-500">
+                Add an extra layer of security to your account
+              </p>
             </div>
             <Button variant="outline" size="sm">
               Enable 2FA
@@ -143,7 +141,9 @@ export default function SettingsPage() {
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <h3 className="text-sm font-medium text-gray-900">Email booking confirmations</h3>
-                <p className="text-xs text-gray-500">Receive email confirmations for your bookings</p>
+                <p className="text-xs text-gray-500">
+                  Receive email confirmations for your bookings
+                </p>
               </div>
               <button
                 onClick={() => setEmailConfirmations(!emailConfirmations)}
@@ -163,7 +163,9 @@ export default function SettingsPage() {
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <h3 className="text-sm font-medium text-gray-900">Promotional emails</h3>
-                <p className="text-xs text-gray-500">Receive emails about special offers and new tours</p>
+                <p className="text-xs text-gray-500">
+                  Receive emails about special offers and new tours
+                </p>
               </div>
               <button
                 onClick={() => setPromotionalEmails(!promotionalEmails)}
@@ -344,7 +346,11 @@ export default function SettingsPage() {
                 <h3 className="text-sm font-semibold text-gray-900">Export Account Data</h3>
                 <p className="text-xs text-gray-600">Download a copy of your account data</p>
               </div>
-              <Button variant="outline" size="sm" className="border-yellow-600 text-yellow-600 hover:bg-yellow-50">
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-yellow-600 text-yellow-600 hover:bg-yellow-50"
+              >
                 Export data
               </Button>
             </div>
@@ -353,7 +359,9 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between p-4 bg-red-50 border border-red-200 rounded-lg">
               <div className="flex-1">
                 <h3 className="text-sm font-semibold text-gray-900">Delete Account</h3>
-                <p className="text-xs text-gray-600">Permanently delete your account and all data</p>
+                <p className="text-xs text-gray-600">
+                  Permanently delete your account and all data
+                </p>
               </div>
               <Button variant="destructive" size="sm">
                 Delete Account
