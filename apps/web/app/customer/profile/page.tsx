@@ -2,7 +2,18 @@ import { Button } from "@triplone/ui/components/button";
 import { Card } from "@triplone/ui/components/card";
 import { Badge } from "@triplone/ui/components/badge";
 import { Separator } from "@triplone/ui/components/separator";
-import { MapPin, Mail, Phone, CalendarDays, Edit, Star, CheckCircle2 } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@triplone/ui/components/avatar";
+import {
+  MapPin,
+  Mail,
+  Phone,
+  CalendarDays,
+  Edit,
+  Star,
+  CheckCircle2,
+  Camera,
+  User,
+} from "lucide-react";
 import Image from "next/image";
 
 export default function ProfilePage() {
@@ -11,14 +22,14 @@ export default function ProfilePage() {
       {/* Header */}
       <div className="flex items-center justify-between pt-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">My Profile</h1>
+          <h1 className="text-3xl font-semibold text-gray-900 mb-1">My Profile</h1>
           <p className="text-sm text-gray-500">Manage your account information and preferences</p>
         </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        {/* Left Column - Main Profile Info */}
-        <div className="lg:col-span-2 space-y-6">
+      <div className="grid gap-6">
+        {/* Main Profile Info */}
+        <div className="space-y-6">
           {/* Personal Information Card */}
           <Card className="p-6">
             <div className="flex items-start justify-between mb-6">
@@ -31,15 +42,18 @@ export default function ProfilePage() {
 
             <div className="flex items-start gap-4 mb-6">
               <div className="relative">
-                <div className="h-20 w-20 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">AR</span>
-                </div>
-                <div className="absolute -bottom-1 -right-1 h-6 w-6 rounded-full bg-teal-500 border-2 border-white flex items-center justify-center">
-                  <CheckCircle2 className="h-4 w-4 text-white" />
-                </div>
+                <Avatar className="h-20 w-20">
+                  <AvatarImage src="/avatar.jpg" alt="Ahmed Rahman" />
+                  <AvatarFallback className="bg-gray-300 text-white">
+                    <User className="h-10 w-10" />
+                  </AvatarFallback>
+                </Avatar>
+                <button className="absolute -bottom-1 -right-1 h-7 w-7 rounded-full bg-green-600 border-2 border-white flex items-center justify-center hover:bg-green-700 transition-colors">
+                  <Camera className="h-4 w-4 text-white" />
+                </button>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900">Ahmed Rahman</h3>
+                <h3 className="text-lg font-medium text-gray-900">Ahmed Rahman</h3>
                 <p className="text-sm text-gray-500">Member since 2023</p>
                 <Badge variant="secondary" className="mt-2">
                   Gold member
@@ -100,7 +114,7 @@ export default function ProfilePage() {
               </Button>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               <div>
                 <p className="text-sm font-medium text-gray-700 mb-2">Favorite Destinations</p>
                 <div className="flex flex-wrap gap-2">
@@ -132,11 +146,11 @@ export default function ProfilePage() {
             </div>
           </Card>
 
-          {/* Travel Preferences Section (Activity History) */}
+          {/* Activity History */}
           <Card className="p-6">
             <h2 className="text-lg font-semibold text-gray-900 mb-6">Travel Preferences</h2>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {[
                 {
                   title: "Booked Cox's Bazar Beach Paradise",
@@ -170,18 +184,21 @@ export default function ProfilePage() {
                       : "bg-blue-500";
 
                 return (
-                  <div key={index} className="flex items-start gap-3">
-                    <div className={`mt-1 h-2 w-2 rounded-full ${dotColor}`} />
+                  <div
+                    key={index}
+                    className="flex items-center gap-4 p-4 rounded-lg border border-gray-200 bg-white hover:border-gray-300 transition-colors"
+                  >
+                    <div className={`h-3 w-3 rounded-full flex-shrink-0 ${dotColor}`} />
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-gray-900">{activity.title}</p>
-                      <p className="text-xs text-gray-500">{activity.date}</p>
+                      <p className="text-xs text-gray-500 mt-0.5">{activity.date}</p>
                     </div>
                     {activity.status && (
                       <Badge
                         variant="secondary"
-                        className={`text-xs ${
+                        className={`text-xs flex-shrink-0 ${
                           activity.status === "confirmed"
-                            ? "bg-teal-100 text-teal-700"
+                            ? "bg-gray-800 text-white hover:bg-gray-800"
                             : "bg-gray-100 text-gray-700"
                         }`}
                       >
@@ -189,7 +206,7 @@ export default function ProfilePage() {
                       </Badge>
                     )}
                     {activity.rating && (
-                      <div className="flex items-center gap-1 text-yellow-500">
+                      <div className="flex items-center gap-1 text-yellow-500 flex-shrink-0">
                         <Star className="h-4 w-4 fill-current" />
                         <span className="text-sm font-medium">{activity.rating}</span>
                       </div>
@@ -197,54 +214,6 @@ export default function ProfilePage() {
                   </div>
                 );
               })}
-            </div>
-          </Card>
-        </div>
-
-        {/* Right Column - Stats and Benefits */}
-        <div className="space-y-6">
-          {/* Travel Stats Card */}
-          <Card className="p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-6">Travel Stats</h2>
-
-            <div className="space-y-6">
-              <div>
-                <p className="text-sm text-gray-500 mb-1">Total Bookings</p>
-                <p className="text-3xl font-bold text-teal-600">8</p>
-              </div>
-
-              <Separator />
-
-              <div>
-                <p className="text-sm text-gray-500 mb-1">Total Spent</p>
-                <p className="text-3xl font-bold text-gray-900">৳125,000</p>
-              </div>
-
-              <Separator />
-
-              <div>
-                <p className="text-sm text-gray-500 mb-1">Destinations Visited</p>
-                <p className="text-3xl font-bold text-teal-600">6</p>
-              </div>
-            </div>
-          </Card>
-
-          {/* Membership Benefits Card */}
-          <Card className="p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-6">Membership Benefits</h2>
-
-            <div className="space-y-3">
-              {[
-                { text: "Priority booking", icon: CheckCircle2 },
-                { text: "10% discount on tours", icon: CheckCircle2 },
-                { text: "Free cancellation", icon: CheckCircle2 },
-                { text: "24/7 support", icon: CheckCircle2 },
-              ].map((benefit, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <benefit.icon className="h-4 w-4 text-teal-600 flex-shrink-0" />
-                  <span className="text-sm text-gray-700">{benefit.text}</span>
-                </div>
-              ))}
             </div>
           </Card>
         </div>
