@@ -1,5 +1,3 @@
-"use client";
-
 import { Bell, Search, Menu } from "lucide-react";
 import { Button } from "@triplone/ui/components/button";
 import { Input } from "@triplone/ui/components/input";
