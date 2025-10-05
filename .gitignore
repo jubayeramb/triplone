@@ -50,3 +50,5 @@ next-env.d.ts
 .cache
 .temp
 tmp
+
+.github/copilot-instructions.md
