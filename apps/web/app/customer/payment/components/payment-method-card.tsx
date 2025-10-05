@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@triplone/ui/components/button";
 import { Card } from "@triplone/ui/components/card";
 import { Badge } from "@triplone/ui/components/badge";
