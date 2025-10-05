@@ -13,7 +13,7 @@ const paymentMethods = [
     cardHolder: "Ahmed Rahman",
     expiryDate: "Expires 12/2025",
     isDefault: true,
-    icon: "💳",
+    image: "/payments/visa.png",
     color: "blue",
   },
   {
@@ -22,7 +22,7 @@ const paymentMethods = [
     name: "bKash",
     accountNumber: "+880-1711-123456",
     isDefault: false,
-    icon: "📱",
+    image: "/payments/bkash.png",
     color: "pink",
   },
   {
@@ -31,7 +31,7 @@ const paymentMethods = [
     name: "Nagad",
     accountNumber: "+880-1811-654321",
     isDefault: false,
-    icon: "🟠",
+    image: "/payments/nagad.png",
     color: "orange",
   },
 ];
@@ -59,17 +59,15 @@ export default function PaymentMethodsPage() {
             >
               <div className="flex items-start justify-between">
                 <div className="flex items-start gap-4">
-                  {/* Icon */}
-                  <div
-                    className={`h-12 w-12 rounded-lg flex items-center justify-center ${
-                      method.type === "visa"
-                        ? "bg-blue-100"
-                        : method.type === "bkash"
-                          ? "bg-pink-100"
-                          : "bg-orange-100"
-                    }`}
-                  >
-                    <span className="text-2xl">{method.icon}</span>
+                  {/* Payment Method Icon */}
+                  <div className="h-14 w-14 rounded-xl flex items-center justify-center p-2">
+                    <Image
+                      src={method.image}
+                      alt={method.name}
+                      width={48}
+                      height={48}
+                      className="object-contain"
+                    />
                   </div>
 
                   {/* Details */}
@@ -112,16 +110,16 @@ export default function PaymentMethodsPage() {
           ))}
 
           {/* Security Information Card */}
-          <Card className="p-6 bg-gray-50 border-gray-200">
+          <Card className="p-6 bg-white border-gray-200">
             <div className="flex items-start gap-4">
-              <div className="h-12 w-12 rounded-lg bg-teal-100 flex items-center justify-center flex-shrink-0">
-                <ShieldCheck className="h-6 w-6 text-teal-600" />
+              <div className="rounded-xl flex items-center justify-center flex-shrink-0 h-full my-auto">
+                <ShieldCheck className="h-[40px] w-[40px] text-green-600" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">
+                <h3 className="font-semibold text-gray-900 mb-1">
                   Your payment information is secure
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-gray-500 leading-relaxed">
                   We use industry-standard encryption to protect your payment details. Your card
                   information is never stored on our servers and is processed securely through our
                   payment partners.

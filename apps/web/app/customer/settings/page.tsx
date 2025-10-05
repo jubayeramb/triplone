@@ -43,7 +43,7 @@ export default function SettingsPage() {
             </div>
             <h3 className="text-lg font-semibold text-teal-600 mb-6">Change password</h3>
 
-            <div className="space-y-4 max-w-2xl">
+            <div className="space-y-4">
               {/* Current Password */}
               <div>
                 <Label htmlFor="current-password" className="text-sm font-medium text-gray-700">
@@ -293,15 +293,18 @@ export default function SettingsPage() {
           <Card className="p-6">
             <h2 className="text-lg font-semibold text-teal-600 mb-6">Preferences</h2>
 
-            <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
+            <div className="flex flex-col md:flex-row gap-4">
               {/* Language */}
-              <div>
-                <Label htmlFor="language" className="text-sm font-medium text-gray-700">
+              <div className="flex items-center gap-2 flex-1">
+                <Label
+                  htmlFor="language"
+                  className="text-sm font-medium text-gray-700 whitespace-nowrap"
+                >
                   Language
                 </Label>
                 <select
                   id="language"
-                  className="mt-1 w-full text-sm border border-gray-300 rounded-md px-3 py-2 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="flex-1 text-sm border border-gray-300 rounded-md px-3 py-2 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
                 >
                   <option>English</option>
                   <option>Bangla</option>
@@ -310,13 +313,16 @@ export default function SettingsPage() {
               </div>
 
               {/* Timezone */}
-              <div>
-                <Label htmlFor="timezone" className="text-sm font-medium text-gray-700">
+              <div className="flex items-center gap-2 flex-1">
+                <Label
+                  htmlFor="timezone"
+                  className="text-sm font-medium text-gray-700 whitespace-nowrap"
+                >
                   Timezone
                 </Label>
                 <select
                   id="timezone"
-                  className="mt-1 w-full text-sm border border-gray-300 rounded-md px-3 py-2 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="flex-1 text-sm border border-gray-300 rounded-md px-3 py-2 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
                 >
                   <option>Asia/Dhaka (GMT+6)</option>
                   <option>Asia/Kolkata (GMT+5:30)</option>
@@ -325,13 +331,16 @@ export default function SettingsPage() {
               </div>
 
               {/* Currency */}
-              <div>
-                <Label htmlFor="currency" className="text-sm font-medium text-gray-700">
+              <div className="flex items-center gap-2 flex-1">
+                <Label
+                  htmlFor="currency"
+                  className="text-sm font-medium text-gray-700 whitespace-nowrap"
+                >
                   Currency
                 </Label>
                 <select
                   id="currency"
-                  className="mt-1 w-full text-sm border border-gray-300 rounded-md px-3 py-2 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="flex-1 text-sm border border-gray-300 rounded-md px-3 py-2 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
                 >
                   <option>BDT</option>
                   <option>USD</option>
