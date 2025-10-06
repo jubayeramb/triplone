@@ -1,9 +1,9 @@
 "use client";
 
 import { Card } from "@triplone/ui/components/card";
+import { Switch } from "@triplone/ui/components/switch";
 import { useState } from "react";
 import { initialPrivacySettings, profileVisibilityOptions, type PrivacySettings } from "../lib";
-import { ToggleSwitch } from "./toggle-switch";
 
 export function PrivacySettingsCard() {
   const [settings, setSettings] = useState<PrivacySettings>(initialPrivacySettings);
@@ -46,9 +46,9 @@ export function PrivacySettingsCard() {
             <h3 className="text-sm font-medium text-gray-900">Share booking history</h3>
             <p className="text-xs text-gray-500">Allow others to see your travel history</p>
           </div>
-          <ToggleSwitch
-            enabled={settings.shareBookingHistory}
-            onChange={(value) => updateSetting("shareBookingHistory", value)}
+          <Switch
+            checked={settings.shareBookingHistory}
+            onCheckedChange={(value) => updateSetting("shareBookingHistory", value)}
           />
         </div>
 
@@ -58,9 +58,9 @@ export function PrivacySettingsCard() {
             <h3 className="text-sm font-medium text-gray-900">Allow reviews</h3>
             <p className="text-xs text-gray-500">Let others see your tour reviews</p>
           </div>
-          <ToggleSwitch
-            enabled={settings.allowReviews}
-            onChange={(value) => updateSetting("allowReviews", value)}
+          <Switch
+            checked={settings.allowReviews}
+            onCheckedChange={(value) => updateSetting("allowReviews", value)}
           />
         </div>
       </div>

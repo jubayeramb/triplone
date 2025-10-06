@@ -1,9 +1,9 @@
 "use client";
 
 import { Card } from "@triplone/ui/components/card";
+import { Switch } from "@triplone/ui/components/switch";
 import { useState } from "react";
 import { initialNotificationSettings, type NotificationSettings } from "../lib";
-import { ToggleSwitch } from "./toggle-switch";
 
 export function NotificationPreferencesCard() {
   const [settings, setSettings] = useState<NotificationSettings>(initialNotificationSettings);
@@ -23,9 +23,9 @@ export function NotificationPreferencesCard() {
             <h3 className="text-sm font-medium text-gray-900">Email booking confirmations</h3>
             <p className="text-xs text-gray-500">Receive email confirmations for your bookings</p>
           </div>
-          <ToggleSwitch
-            enabled={settings.emailConfirmations}
-            onChange={(value) => updateSetting("emailConfirmations", value)}
+          <Switch
+            checked={settings.emailConfirmations}
+            onCheckedChange={(value) => updateSetting("emailConfirmations", value)}
           />
         </div>
 
@@ -37,9 +37,9 @@ export function NotificationPreferencesCard() {
               Receive emails about special offers and new tours
             </p>
           </div>
-          <ToggleSwitch
-            enabled={settings.promotionalEmails}
-            onChange={(value) => updateSetting("promotionalEmails", value)}
+          <Switch
+            checked={settings.promotionalEmails}
+            onCheckedChange={(value) => updateSetting("promotionalEmails", value)}
           />
         </div>
 
@@ -49,9 +49,9 @@ export function NotificationPreferencesCard() {
             <h3 className="text-sm font-medium text-gray-900">SMS reminders</h3>
             <p className="text-xs text-gray-500">Get SMS reminders before your trips</p>
           </div>
-          <ToggleSwitch
-            enabled={settings.smsReminders}
-            onChange={(value) => updateSetting("smsReminders", value)}
+          <Switch
+            checked={settings.smsReminders}
+            onCheckedChange={(value) => updateSetting("smsReminders", value)}
           />
         </div>
 
@@ -61,9 +61,9 @@ export function NotificationPreferencesCard() {
             <h3 className="text-sm font-medium text-gray-900">Push notifications</h3>
             <p className="text-xs text-gray-500">Receive push notifications on your device</p>
           </div>
-          <ToggleSwitch
-            enabled={settings.pushNotifications}
-            onChange={(value) => updateSetting("pushNotifications", value)}
+          <Switch
+            checked={settings.pushNotifications}
+            onCheckedChange={(value) => updateSetting("pushNotifications", value)}
           />
         </div>
       </div>
