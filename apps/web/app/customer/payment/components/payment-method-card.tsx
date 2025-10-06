@@ -1,11 +1,8 @@
-"use client";
-
-import { Button } from "@triplone/ui/components/button";
 import { Card } from "@triplone/ui/components/card";
 import { Badge } from "@triplone/ui/components/badge";
-import { Edit, Trash2 } from "lucide-react";
 import Image from "next/image";
 import type { PaymentMethod } from "../lib";
+import { PaymentMethodActions } from "./payment-method-actions";
 
 interface PaymentMethodCardProps {
   method: PaymentMethod;
@@ -53,34 +50,13 @@ export function PaymentMethodCard({
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-2">
-          {!method.isDefault && (
-            <Button
-              variant="outline"
-              size="sm"
-              className="text-sm text-gray-600 hover:text-gray-900"
-              onClick={() => onSetDefault?.(method.id)}
-            >
-              Set as default
-            </Button>
-          )}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="h-8 w-8 p-0"
-            onClick={() => onEdit?.(method.id)}
-          >
-            <Edit className="h-4 w-4 text-gray-600" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="h-8 w-8 p-0"
-            onClick={() => onDelete?.(method.id)}
-          >
-            <Trash2 className="h-4 w-4 text-red-500" />
-          </Button>
-        </div>
+        <PaymentMethodActions
+          methodId={method.id}
+          isDefault={method.isDefault}
+          onSetDefault={onSetDefault}
+          onEdit={onEdit}
+          onDelete={onDelete}
+        />
       </div>
     </Card>
   );

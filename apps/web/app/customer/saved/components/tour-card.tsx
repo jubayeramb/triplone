@@ -1,11 +1,9 @@
-"use client";
-
-import { Button } from "@triplone/ui/components/button";
 import { Card } from "@triplone/ui/components/card";
 import { Badge } from "@triplone/ui/components/badge";
-import { MapPin, Clock, Star, Bookmark } from "lucide-react";
+import { MapPin, Clock, Star } from "lucide-react";
 import Image from "next/image";
 import type { SavedTour } from "../lib";
+import { BookmarkButton, BookNowButton } from "./tour-card-actions";
 
 interface TourCardProps {
   tour: SavedTour;
@@ -26,12 +24,7 @@ export function TourCard({ tour, onBookNow, onToggleSave }: TourCardProps) {
         />
 
         {/* Bookmark Button */}
-        <button
-          onClick={() => onToggleSave?.(tour.id)}
-          className="absolute top-3 right-3 h-8 w-8 rounded bg-white shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors"
-        >
-          <Bookmark className="h-4 w-4 text-red-500 fill-red-500" />
-        </button>
+        <BookmarkButton tourId={tour.id} onToggleSave={onToggleSave} />
 
         {/* Badge */}
         {tour.featured && (
@@ -84,12 +77,7 @@ export function TourCard({ tour, onBookNow, onToggleSave }: TourCardProps) {
         </div>
 
         {/* Book Now Button */}
-        <Button
-          className="w-full bg-teal-600 hover:bg-teal-700 text-white"
-          onClick={() => onBookNow?.(tour.id)}
-        >
-          Book Now
-        </Button>
+        <BookNowButton tourId={tour.id} onBookNow={onBookNow} />
       </div>
     </Card>
   );
