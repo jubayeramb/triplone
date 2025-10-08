@@ -10,22 +10,23 @@
   },
   "dependencies": {
     "@triplone/ui": "workspace:*",
+    "lucide-react": "^0.475.0",
+    "next": "15.5.4",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.4"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@triplone/eslint-config": "workspace:*",
     "@triplone/tailwind-config": "workspace:*",
     "@triplone/typescript-config": "workspace:*",
-    "@triplone/eslint-config": "workspace:*",
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
