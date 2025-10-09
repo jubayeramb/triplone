@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Tour", href: "/tour" },
   { name: "Package", href: "/package" },
   { name: "Contact", href: "/contact" },
+  { name: "Blog", href: "/blog" },
 ];
 
 export function Navbar() {
