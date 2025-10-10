@@ -1,6 +1,7 @@
 {
   "name": "@triplone/api",
   "type": "module",
+  "version": "1.0.0",
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsup",
@@ -9,9 +10,11 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.19.5",
+    "@hono/swagger-ui": "^0.5.2",
     "@hono/zod-openapi": "^1.1.3",
     "dotenv": "^17.2.3",
     "hono": "^4.9.10",
+    "stoker": "^2.0.1",
     "zod": "^4.1.12"
   },
   "devDependencies": {
