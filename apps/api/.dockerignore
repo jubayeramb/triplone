@@ -1,0 +1,11 @@
+# Ignore everything by default
+*
+
+# Include only necessary files
+!dist/
+!package.json
+!pnpm-lock.yaml
+!.env.production
+
+# Keep node_modules ignored
+node_modules/

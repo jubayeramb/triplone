@@ -7,7 +7,8 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "tooling/*"
   ],
   "scripts": {
     "dev": "turbo run dev",
@@ -20,8 +21,9 @@
     "db:migrate": "turbo run db:migrate",
     "db:push": "turbo run db:push",
     "db:studio": "turbo run db:studio",
-    "dev:web": "turbo run dev --filter=web",
-    "dev:dash": "turbo run dev --filter=dashboard"
+    "dev:web": "turbo run dev --filter=@triplone/web",
+    "dev:dash": "turbo run dev --filter=@triplone/dashboard",
+    "dev:api": "turbo run dev --filter=@triplone/api"
   },
   "devDependencies": {
     "@turbo/gen": "^2.5.8",
