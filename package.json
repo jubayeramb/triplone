@@ -17,7 +17,7 @@
     "type-check": "turbo run type-check",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md,yml,yaml}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md,yml,yaml}\"",
-    "db:generate": "turbo run db:generate",
+    "db:gen": "turbo run db:gen",
     "db:migrate": "turbo run db:migrate",
     "db:push": "turbo run db:push",
     "db:studio": "turbo run db:studio",
