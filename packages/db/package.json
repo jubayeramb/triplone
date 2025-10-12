@@ -12,11 +12,18 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
+  "exports": {
+    "./client": "./src/client.ts",
+    "./migrate": "./src/migrate.ts",
+    "./schema/*": "./src/schema/*.ts"
+  },
   "dependencies": {
     "@triplone/api": "workspace:*",
     "@triplone/eslint-config": "workspace:*",
     "drizzle-orm": "^0.44.6",
-    "postgres": "^3.4.7"
+    "drizzle-zod": "^0.8.3",
+    "postgres": "^3.4.7",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@triplone/typescript-config": "workspace:*",
