@@ -18,7 +18,6 @@
     "./schema/*": "./src/schema/*.ts"
   },
   "dependencies": {
-    "@triplone/api": "workspace:*",
     "@triplone/eslint-config": "workspace:*",
     "drizzle-orm": "^0.44.6",
     "drizzle-zod": "^0.8.3",

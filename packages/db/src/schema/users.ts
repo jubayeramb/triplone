@@ -51,7 +51,7 @@ export const userInsertSchema = createInsertSchema(users, {
   ...timestamps.omit,
 });
 
-const updateUserSchema = createUpdateSchema(users, {
+export const serUpdateSchema = createUpdateSchema(users, {
   email: (schema) => schema.email(),
 }).omit({
   id: true,

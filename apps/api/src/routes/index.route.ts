@@ -1,5 +1,5 @@
 import { createRoute, z } from "@hono/zod-openapi";
-import { createApp } from "../lib/create-app";
+import { createApp } from "@/api/lib/create-app";
 
 const app = createApp();
 
