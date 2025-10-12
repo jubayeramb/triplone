@@ -1,0 +1,33 @@
+{
+  "name": "@triplone/db",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "db:studio": "drizzle-kit studio",
+    "db:gen": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:drop": "drizzle-kit drop",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    "./client": "./src/client.ts",
+    "./migrate": "./src/migrate.ts",
+    "./schema/*": "./src/schema/*.ts"
+  },
+  "dependencies": {
+    "@triplone/eslint-config": "workspace:*",
+    "drizzle-orm": "^0.44.6",
+    "drizzle-zod": "^0.8.3",
+    "postgres": "^3.4.7",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@triplone/typescript-config": "workspace:*",
+    "@types/node": "24.7.1",
+    "drizzle-kit": "^0.31.5",
+    "typescript": "^5.9.2"
+  }
+}
