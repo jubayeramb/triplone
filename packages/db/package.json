@@ -15,7 +15,7 @@
   "exports": {
     "./client": "./src/client.ts",
     "./migrate": "./src/migrate.ts",
-    "./schema/*": "./src/schema/*.ts"
+    "./schema": "./src/schema/index.ts"
   },
   "dependencies": {
     "@triplone/eslint-config": "workspace:*",
