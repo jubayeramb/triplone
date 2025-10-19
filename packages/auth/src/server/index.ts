@@ -1,10 +1,10 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { getDbClient } from "@triplone/db/client";
+import { createDbClientSingleton } from "@triplone/db/client";
 import * as schema from "@triplone/db/schema";
 import { env } from "@triplone/env/server";
 
-const db = getDbClient();
+const db = createDbClientSingleton(env.DATABASE_URL);
 
 export const auth = betterAuth({
   secret: env.AUTH_SECRET,
@@ -19,9 +19,9 @@ export const auth = betterAuth({
   },
   socialProviders: {
     google: {
-      clientId: env.GOOGLE_CLIENT_ID,
-      clientSecret: env.GOOGLE_CLIENT_SECRET,
-      enabled: Boolean(env.GOOGLE_CLIENT_ID),
+      clientId: env.GOOGLE_CLIENT_ID ?? "",
+      clientSecret: env.GOOGLE_CLIENT_SECRET ?? "",
+      enabled: Boolean(env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET),
     },
   },
   session: {
