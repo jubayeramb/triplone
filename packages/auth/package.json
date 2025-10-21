@@ -1,0 +1,27 @@
+{
+  "name": "@triplone/auth",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "gen": "npx @better-auth/cli generate --config /packages/auth/src/server",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    "./server": "./src/server/index.ts",
+    "./client": "./src/client/index.ts"
+  },
+  "dependencies": {
+    "@triplone/db": "workspace:*",
+    "@triplone/env": "workspace:*",
+    "better-auth": "^1.3.27",
+    "dotenv": "^17.2.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@triplone/eslint-config": "workspace:*",
+    "@triplone/typescript-config": "workspace:*",
+    "@types/node": "24.7.1",
+    "typescript": "^5.9.2"
+  }
+}

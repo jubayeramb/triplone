@@ -1,0 +1,19 @@
+{
+  "extends": "@triplone/typescript-config/base.json",
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "rootDir": "src",
+    "paths": {
+      "@/api/*": ["../../apps/api/src/*"]
+    },
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node"],
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist"
+  },
+  "watchOptions": {
+    "excludeDirectories": ["**/node_modules", "**/packages/web"]
+  },
+  "include": ["src"]
+}

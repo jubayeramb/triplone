@@ -15,6 +15,7 @@
   "exports": {
     "./client": "./src/client.ts",
     "./migrate": "./src/migrate.ts",
+    "./schema": "./src/schema/index.ts",
     "./schema/*": "./src/schema/*.ts"
   },
   "dependencies": {

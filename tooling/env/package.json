@@ -1,0 +1,32 @@
+{
+  "name": "@triplone/env",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -b"
+  },
+  "exports": {
+    "./client": {
+      "types": "./src/client/index.ts",
+      "import": "./src/client/index.ts",
+      "default": "./src/client/index.ts"
+    },
+    "./server": {
+      "types": "./src/server/index.ts",
+      "import": "./src/server/index.ts",
+      "default": "./src/server/index.ts"
+    }
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@triplone/eslint-config": "workspace:*",
+    "@triplone/typescript-config": "workspace:*",
+    "@types/node": "24.7.1",
+    "typescript": "^5.9.2"
+  }
+}
