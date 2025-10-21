@@ -3,6 +3,21 @@ import { resolve } from "path";
 import type { z } from "zod";
 import { findWorkspaceRoot } from "./env-root";
 
+// Type-safe global cache
+interface EnvCache {
+  __env_server_instance__?: any;
+  __env_server_initialized__?: boolean;
+  __env_client_instance__?: any;
+  __env_client_initialized__?: boolean;
+}
+
+declare global {
+  var __env_server_instance__: any;
+  var __env_server_initialized__: boolean | undefined;
+  var __env_client_instance__: any;
+  var __env_client_initialized__: boolean | undefined;
+}
+
 /**
  * Initialize environment variables with validation
  * @param envFileName - Name of the env file (e.g., ".env.server", ".env.client")
@@ -16,12 +31,12 @@ export function initializeEnvironment<T extends z.ZodTypeAny>(
   envType: "server" | "client"
 ): z.infer<T> {
   // Singleton pattern - only initialize once per env type
-  const cacheKey = `__env_${envType}_instance__` as const;
-  const initKey = `__env_${envType}_initialized__` as const;
+  const cacheKey = `__env_${envType}_instance__` as keyof EnvCache;
+  const initKey = `__env_${envType}_initialized__` as keyof EnvCache;
 
   // Check if already initialized
-  if ((globalThis as any)[initKey] && (globalThis as any)[cacheKey]) {
-    return (globalThis as any)[cacheKey];
+  if (globalThis[initKey] && globalThis[cacheKey]) {
+    return globalThis[cacheKey] as z.infer<T>;
   }
 
   // Get the workspace root
@@ -43,8 +58,8 @@ export function initializeEnvironment<T extends z.ZodTypeAny>(
     const envInstance = schema.parse(process.env);
 
     // Cache the instance
-    (globalThis as any)[cacheKey] = envInstance;
-    (globalThis as any)[initKey] = true;
+    globalThis[cacheKey] = envInstance;
+    globalThis[initKey] = true;
 
     // Only log in development
     if (process.env.NODE_ENV !== "production") {
