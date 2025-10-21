@@ -5,7 +5,7 @@ import { dirname, join } from "path";
 export function findWorkspaceRoot(startDir: string): string {
   let currentDir = startDir;
   // Keep going up until we find pnpm-workspace.yaml or reach root
-  while (currentDir !== "/") {
+  while (dirname(currentDir) !== currentDir) {
     if (existsSync(join(currentDir, "pnpm-workspace.yaml"))) {
       return currentDir;
     }
