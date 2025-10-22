@@ -134,7 +134,7 @@ Applications are located in the `apps/` directory. Each app is a standalone Next
 
 The main customer-facing web application.
 
-- **Framework**: Next.js 15 with App Router
+- **Framework**: Next.js 16 with App Router
 - **Port**: 3000 (default)
 - **Features**:
   - Customer dashboard
@@ -150,7 +150,7 @@ The main customer-facing web application.
 
 Admin/internal dashboard application.
 
-- **Framework**: Next.js 15 with App Router
+- **Framework**: Next.js 16 with App Router
 - **Port**: 4000
 - **Features**: TBD
 
@@ -228,36 +228,6 @@ Shared TypeScript configurations.
   - `base.json` - Base TypeScript config
   - `nextjs.json` - Next.js specific config
   - `react-library.json` - React library config
-
-## 🎯 Use Cases
-
-### For Individual Travelers
-
-- Plan a weekend getaway with AI-optimized itinerary
-- Discover verified tour packages matching your budget and interests
-- Get packing assistance and travel essentials recommendations
-- Explore destinations virtually before booking
-
-### For Small/Medium Tour Agencies
-
-- Digitize your entire tour catalog and operations
-- Automate social media marketing with AI-generated content
-- Manage bookings, customers, and payments in one dashboard
-- Compete with larger agencies through AI-powered tools
-
-### For Travel Influencers & Content Creators
-
-- Access curated tour experiences for content creation
-- Collaborate with verified agencies for sponsored trips
-- Use AI tools to enhance travel storytelling
-
-### For Travel Product Sellers
-
-- Reach targeted travelers at the moment of need
-- Integrate products into AI-powered packing recommendations
-- Benefit from context-aware product placement
-
----
 
 ## Getting Started
 
@@ -344,7 +314,7 @@ To add a new shared package:
 
 ## 🚀 Technology Stack
 
-- **Frontend**: Next.js 15 (App Router), React, Tailwind CSS v4
+- **Frontend**: Next.js 16 (App Router), React, Tailwind CSS v4
 - **Backend**: Node.js, Express (Hono framework)
 - **Database**: PostgreSQL with Drizzle ORM
 - **AI/ML**: Integration-ready architecture for AI services
@@ -354,7 +324,7 @@ To add a new shared package:
 
 ---
 
-## �️ Roadmap
+## 🗺️ Roadmap
 
 - [ ] **Q1 2025**: Core platform launch with basic AI features
 - [ ] **Q2 2025**: AI video creator and content engine
@@ -364,7 +334,7 @@ To add a new shared package:
 
 ---
 
-## �📄 License
+## 📄 License
 
 This project is proprietary software. All rights reserved.
 
@@ -409,6 +379,6 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 ⭐ Star us on GitHub — it motivates us a lot!
 
-[Website](https://triplone.com) · [Documentation](https://docs.triplone.com) · [Twitter](https://twitter.com/triplone)
+[Website](https://triplone.com) · [X (Twitter)](https://x.com/TriploneHQ)
 
 </div>
