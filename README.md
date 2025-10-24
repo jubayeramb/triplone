@@ -2,7 +2,7 @@
 
 # 🛫 Triplone
 
-### AI-Powered Tourism Marketing & Management Platform
+### AI-Powered Tourism Planning, Marketing & Management Platform
 
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 [![Node Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](https://nodejs.org)
@@ -14,6 +14,9 @@
 [![Drizzle ORM](https://img.shields.io/badge/Drizzle%20ORM-1.0+-brightgreen.svg)](https://drizzle.team/orm)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4.0-blue.svg)](https://tailwindcss.com/)
 [![shadcn/ui](https://img.shields.io/badge/shadcn.ui-components-green.svg)](https://ui.shadcn.com/)
+[![OpenAPI](https://img.shields.io/badge/OpenAPI-3.0+-red.svg)](https://www.openapis.org/)
+[![Zod](https://img.shields.io/badge/Zod-validation-yellow.svg)](https://zod.dev/)
+[![Better-Auth](https://img.shields.io/badge/Better--Auth-authentication-blue.svg)](https://better-auth.com/)
 
 **Make travel planning smarter, safer, and simpler**
 
@@ -315,11 +318,12 @@ To add a new shared package:
 ## 🚀 Technology Stack
 
 - **Frontend**: Next.js 16 (App Router), React, Tailwind CSS v4
-- **Backend**: Node.js, Express (Hono framework)
+- **Backend**: Node.js, Hono.js
 - **Database**: PostgreSQL with Drizzle ORM
+- **Authentication**: JWT, OAuth2 using Better-Auth
 - **AI/ML**: Integration-ready architecture for AI services
 - **Monorepo**: Turborepo + pnpm workspaces
-- **Type Safety**: TypeScript across all packages
+- **Type Safety**: TypeScript across all packages, Hono RPC, Zod, OpenAPI
 - **Styling**: shadcn/ui components + Tailwind CSS
 
 ---
@@ -338,7 +342,7 @@ To add a new shared package:
 
 This project is proprietary software. All rights reserved.
 
-For licensing inquiries, please contact: [your-email@triplone.com]
+For licensing inquiries, please contact: hello@triplone.com
 
 ---
 
@@ -360,7 +364,6 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 - **Website**: [triplone.com](https://triplone.com) _(coming soon)_
 - **Email**: support@triplone.com
-- **Documentation**: [docs.triplone.com](https://docs.triplone.com) _(coming soon)_
 - **Issues**: [GitHub Issues](https://github.com/jubayeramb/triplone/issues)
 
 ---
