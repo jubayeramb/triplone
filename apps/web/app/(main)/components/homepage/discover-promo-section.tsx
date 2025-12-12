@@ -19,7 +19,7 @@ export function DiscoverPromoSection() {
         <div className="lg:w-1/3">
           <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
             <Image
-              src="/promo/beach-relax.jpg"
+              src="/homepage/promo/beach-relax.jpg"
               alt="Beach relaxation"
               fill
               className="object-cover"
@@ -68,7 +68,7 @@ export function DiscoverPromoSection() {
           <div className="mt-auto pt-8">
             <div className="relative w-full h-32 sm:h-40 rounded-2xl overflow-hidden">
               <Image
-                src="/promo/wave.jpg"
+                src="/homepage/promo/wave.jpg"
                 alt="Ocean waves"
                 fill
                 className="object-cover"

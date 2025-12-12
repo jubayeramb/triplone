@@ -1,0 +1,68 @@
+"use client";
+
+import { Compass, Shield, Headphones } from "lucide-react";
+
+const features = [
+  {
+    icon: Compass,
+    title: "Local Expertise",
+    description:
+      "Born And Raised Guides Who Know Every Hidden Waterfall, Secret Viewpoint, And Authentic Local Restaurant",
+  },
+  {
+    icon: Shield,
+    title: "Verified Network",
+    description:
+      "Every Agency Is Personally Vetted, Licensed, And Regularly Audited For Quality And Safety Standards",
+  },
+  {
+    icon: Headphones,
+    title: "24/7 Guide",
+    description:
+      "Real Human Support, Not Chatbots. Emergency Assistance, Travel Updates, And Local Help Whenever You Need It",
+  },
+];
+
+export function FeaturesSection() {
+  return (
+    <section className="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-16 bg-white">
+      {/* Header */}
+      <div className="text-center max-w-3xl mx-auto mb-12">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Discover The Bangladesh From Above
+        </h2>
+        <p className="text-gray-500 text-sm sm:text-base">
+          Traveling Is A Wonderful Way To Explore New Places. Learn About Different
+          Culture. And Gain Unique Experiences
+        </p>
+      </div>
+
+      {/* Features Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {features.map((feature, index) => {
+          const IconComponent = feature.icon;
+          return (
+            <div key={index} className="flex flex-col items-center text-center">
+              {/* Icon */}
+              <div className="w-16 h-16 rounded-full border-2 border-cyan-400 flex items-center justify-center mb-6">
+                <IconComponent className="w-7 h-7 text-cyan-500" />
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                {feature.title.split(" ")[0]}
+                <br />
+                {feature.title.split(" ").slice(1).join(" ")}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-500 text-sm leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

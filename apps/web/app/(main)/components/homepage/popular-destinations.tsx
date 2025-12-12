@@ -21,7 +21,7 @@ const destinations: Destination[] = [
     toursAvailable: 20,
     location: "Chittagong, Bangladesh",
     rating: 4.6,
-    image: "/destinations/coxs-bazar.jpg",
+    image: "/homepage/destinations/coxs-bazar.jpg",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const destinations: Destination[] = [
     toursAvailable: 15,
     location: "Khulna, Bangladesh",
     rating: 4.8,
-    image: "/destinations/sundarban.jpg",
+    image: "/homepage/destinations/sundarban.jpg",
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const destinations: Destination[] = [
     toursAvailable: 25,
     location: "Chittagong, Bangladesh",
     rating: 5.0,
-    image: "/destinations/bandarban.jpg",
+    image: "/homepage/destinations/bandarban.jpg",
   },
 ];
 

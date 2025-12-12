@@ -1,7 +1,12 @@
-import { HeroSection } from "./components/homepage/hero-section";
-import { PopularDestinations } from "./components/homepage/popular-destinations";
-import { DiscoverSection } from "./components/homepage/discover-section";
-import { DiscoverPromoSection } from "./components/homepage/discover-promo-section";
+import {
+  HeroSection,
+  PopularDestinations,
+  DiscoverSection,
+  DiscoverPromoSection,
+  FeaturesSection,
+  TestimonialsSection,
+  HighlightsSection,
+} from "./components/homepage";
 
 export default function Home() {
   return (
@@ -10,6 +15,9 @@ export default function Home() {
       <PopularDestinations />
       <DiscoverSection />
       <DiscoverPromoSection />
+      <FeaturesSection />
+      <TestimonialsSection />
+      <HighlightsSection />
     </main>
   );
 }

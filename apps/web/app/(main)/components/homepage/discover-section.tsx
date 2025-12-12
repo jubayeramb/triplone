@@ -23,7 +23,7 @@ export function DiscoverSection() {
         {/* Left Card - Find Your Destination */}
         <div className="relative w-full lg:w-72 h-64 lg:h-80 rounded-2xl overflow-hidden group">
           <Image
-            src="/discover/map-bg.jpg"
+            src="/homepage/discover/map-bg.jpg"
             alt="Map background"
             fill
             className="object-cover"
@@ -52,7 +52,7 @@ export function DiscoverSection() {
             {/* Circular Image */}
             <div className="absolute top-4 right-4 w-28 h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-4 border-white">
               <Image
-                src="/discover/sunset.jpg"
+                src="/homepage/discover/sunset.jpg"
                 alt="Sunset view"
                 fill
                 className="object-cover"
@@ -86,7 +86,7 @@ export function DiscoverSection() {
         {/* Right Card - Find Any Agency */}
         <div className="relative w-full lg:w-72 h-64 lg:h-80 rounded-2xl overflow-hidden group">
           <Image
-            src="/discover/city-bg.jpg"
+            src="/homepage/discover/city-bg.jpg"
             alt="City background"
             fill
             className="object-cover"
