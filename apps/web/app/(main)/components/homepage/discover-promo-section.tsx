@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
@@ -26,7 +24,7 @@ export function DiscoverPromoSection() {
           <div className=" px-8 lg:w-2/3 flex flex-col gap-2 justify-center">
             {/* Row 1: DISCOVER + Experience text */}
             <div className="flex flex-col lg:flex-row lg:items-start gap-4">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-teal-800 leading-none">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-800 leading-none">
                 DISCOVER
               </h2>
               <p className="pl-8 text-gray-600 text-sm leading-relaxed max-w-[350px] lg:pt-2">
@@ -36,7 +34,7 @@ export function DiscoverPromoSection() {
             </div>
 
             {/* Row 2: BANGLADESH'S HIDDEN */}
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-teal-800 leading-none">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-800 leading-none">
               BANGLADESH&apos;S HIDDEN
             </h2>
 
@@ -47,7 +45,7 @@ export function DiscoverPromoSection() {
                 Mangrove Forests Of Sundarbans, Bangladesh Offers Incredible Diversity
                 In A Compact Region.
               </p>
-              <h2 className="pt-3 text-4xl sm:text-5xl lg:text-6xl font-bold text-teal-800 leading-none order-1 lg:order-2">
+              <h2 className="pt-3 text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-800 leading-none order-1 lg:order-2">
                 TREASURES
               </h2>
             </div>
@@ -59,7 +57,7 @@ export function DiscoverPromoSection() {
           {/* Left - Discount Badge */}
           <div className="lg:w-1/3">
             <div className="flex items-center gap-4 bg-gray-50 rounded-2xl px-6 py-4 h-full">
-              <span className="text-3xl font-bold text-teal-700">20% Off</span>
+              <span className="text-3xl font-semibold text-primary-2">20% Off</span>
               <span className="text-sm text-gray-500">
                 Till 28 December
                 <br />
@@ -77,10 +75,10 @@ export function DiscoverPromoSection() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-start px-2">
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-teal-700 hover:bg-teal-800 text-white font-semibold rounded-lg transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-lg transition-colors"
                 >
                   BOOK TRIP NOW
                   <ArrowRight className="w-4 h-4" />

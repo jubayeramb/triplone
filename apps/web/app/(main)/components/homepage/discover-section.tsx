@@ -1,5 +1,3 @@
-"use client";
-
 import { MapPin, Ticket, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
@@ -44,7 +42,7 @@ export function DiscoverSection() {
 
         {/* Center Card - Book A Ticket */}
         <div className="relative w-full lg:w-[420px] lg:h-[482px] z-20">
-          <div className="bg-blue-600 rounded-t-2xl p-8 pt-16 relative shadow-2xl h-full flex flex-col">
+          <div className="bg-primary-2 rounded-t-2xl p-8 pt-16 relative shadow-2xl h-full flex flex-col">
             {/* Ticket Icon */}
             <div className="w-16 h-16 rounded-full border-2 border-white/40 flex items-center justify-center mb-6 bg-blue-500/50">
               <Ticket className="w-7 h-7 text-white" />

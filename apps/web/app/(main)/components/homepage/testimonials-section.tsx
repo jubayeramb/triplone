@@ -1,5 +1,3 @@
-"use client";
-
 import { Star } from "lucide-react";
 import Image from "next/image";
 
@@ -60,7 +58,7 @@ function StarRating({ rating }: { rating: number }) {
           key={star}
           className={`w-5 h-5 ${
             star <= rating
-              ? "fill-cyan-400 text-cyan-400"
+              ? "fill-primary text-primary"
               : "fill-gray-200 text-gray-200"
           }`}
         />
@@ -147,7 +145,7 @@ export function TestimonialsSection() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {testimonials.map((testimonial) => (
           <div className={`flex items-center gap-3 rounded-xl ${
-        testimonial.featured ? "bg-[#1E3A5F]" : "bg-[#F9F9FB]"
+        testimonial.featured ? "bg-primary-2" : "bg-[#F9F9FB]"
       }`}>
           <div key={testimonial.id} className="flex flex-col">
             {/* Quote Card */}

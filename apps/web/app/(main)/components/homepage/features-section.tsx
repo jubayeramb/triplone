@@ -1,5 +1,3 @@
-"use client";
-
 import { Compass, Shield, Headphones } from "lucide-react";
 
 const features = [
