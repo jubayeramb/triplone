@@ -1,27 +1,10 @@
-import { Compass, Shield, Headphones } from "lucide-react";
+import type { Feature } from "../../data/homepage";
 
-const features = [
-  {
-    icon: Compass,
-    title: "Local Expertise",
-    description:
-      "Born And Raised Guides Who Know Every Hidden Waterfall, Secret Viewpoint, And Authentic Local Restaurant",
-  },
-  {
-    icon: Shield,
-    title: "Verified Network",
-    description:
-      "Every Agency Is Personally Vetted, Licensed, And Regularly Audited For Quality And Safety Standards",
-  },
-  {
-    icon: Headphones,
-    title: "24/7 Guide",
-    description:
-      "Real Human Support, Not Chatbots. Emergency Assistance, Travel Updates, And Local Help Whenever You Need It",
-  },
-];
+interface FeaturesSectionProps {
+  features: Feature[];
+}
 
-export function FeaturesSection() {
+export function FeaturesSection({ features }: FeaturesSectionProps) {
   return (
     <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20 bg-white">
       {/* Header */}

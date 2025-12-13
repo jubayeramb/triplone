@@ -1,19 +1,11 @@
 import Image from "next/image";
+import type { Highlight } from "../../data/homepage";
 
-const highlights = [
-  {
-    image: "/homepage/highlights/ocean-rocks.jpg",
-    title: "Explore New Horizons",
-    subtitle: "With Confidence.",
-  },
-  {
-    image: "/homepage/highlights/beach-chairs.jpg",
-    title: "Experience Bangladesh,",
-    subtitle: "One Step At A Time.",
-  },
-];
+interface HighlightsSectionProps {
+  highlights: Highlight[];
+}
 
-export function HighlightsSection() {
+export function HighlightsSection({ highlights }: HighlightsSectionProps) {
   return (
     <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20 bg-white">
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 max-w-5xl mx-auto">

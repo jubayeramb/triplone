@@ -4,42 +4,11 @@ import { Button } from "@triplone/ui/components/button";
 import { ChevronLeft, ChevronRight, MapPin, Star } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import type { Destination } from "../../data/homepage";
 
-interface Destination {
-  id: number;
-  name: string;
-  toursAvailable: number;
-  location: string;
-  rating: number;
-  image: string;
+interface PopularDestinationsProps {
+  destinations: Destination[];
 }
-
-const destinations: Destination[] = [
-  {
-    id: 1,
-    name: "Cox's Bazar",
-    toursAvailable: 20,
-    location: "Chittagong, Bangladesh",
-    rating: 4.6,
-    image: "/homepage/destinations/coxs-bazar.jpg",
-  },
-  {
-    id: 2,
-    name: "Sundarban",
-    toursAvailable: 15,
-    location: "Khulna, Bangladesh",
-    rating: 4.8,
-    image: "/homepage/destinations/sundarban.jpg",
-  },
-  {
-    id: 3,
-    name: "Bandarban",
-    toursAvailable: 25,
-    location: "Chittagong, Bangladesh",
-    rating: 5.0,
-    image: "/homepage/destinations/bandarban.jpg",
-  },
-];
 
 function DestinationCard({ destination }: { destination: Destination }) {
   return (
@@ -79,7 +48,7 @@ function DestinationCard({ destination }: { destination: Destination }) {
   );
 }
 
-export function PopularDestinations() {
+export function PopularDestinations({ destinations }: PopularDestinationsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevious = () => {

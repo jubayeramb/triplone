@@ -1,11 +1,10 @@
-const stats = [
-  { value: "50+", label: "Destinations" },
-  { value: "200+", label: "Tour Packages" },
-  { value: "25+", label: "Travel Agencies" },
-  { value: "10K+", label: "Happy Travelers" },
-];
+import type { Stat } from "../../data/homepage";
 
-export function AboutUsSection() {
+interface AboutUsSectionProps {
+  stats: Stat[];
+}
+
+export function AboutUsSection({ stats }: AboutUsSectionProps) {
   return (
     <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20 bg-white">
       <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 text-center mb-8">
@@ -60,4 +59,3 @@ export function AboutUsSection() {
     </section>
   );
 }
-

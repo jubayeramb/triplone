@@ -1,54 +1,11 @@
+import { cn } from "@triplone/ui/lib/utils";
 import { Star } from "lucide-react";
 import Image from "next/image";
+import type { Testimonial } from "../../data/homepage";
 
-interface Testimonial {
-  id: number;
-  rating: number;
-  content: string;
-  author: {
-    name: string;
-    title: string;
-    avatar: string;
-  };
-  featured?: boolean;
+interface TestimonialsSectionProps {
+  testimonials: Testimonial[];
 }
-
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    rating: 5,
-    content:
-      "Such A Modern, User-Friendly Platform! I Found My Saint Martin Tour In Minutes, Compared Prices, And Booked Confidently. Triplone Feels Like A Global-Quality App Built For Bangladeshi Travelers.",
-    author: {
-      name: "Apurbo",
-      title: "Unemployed Person",
-      avatar: "/homepage/testimonials/apurbo.jpg",
-    },
-  },
-  {
-    id: 2,
-    rating: 4,
-    content:
-      "Triplone Made My Cox's Bazar Trip So Easy! I Compared Several Agencies In One Place And Booked Within Minutes. Everything Was Clear, Verified, And Perfectly Organized. It Saved Me So Much Time And Effort.",
-    author: {
-      name: "Tayaba Rahman",
-      title: "Ui/Ux Designer",
-      avatar: "/homepage/testimonials/tayaba.jpg",
-    },
-    featured: true,
-  },
-  {
-    id: 3,
-    rating: 5,
-    content:
-      "I Love How Organized And Trustworthy Triplone Feels. The Comparison Option Helped Me Choose The Best Agency Easily. My Bandarban Trip Went Perfectly — Everything Matched What I Saw Online.",
-    author: {
-      name: "Jubayer",
-      title: "Depressed Patient",
-      avatar: "/homepage/testimonials/jubayer.jpg",
-    },
-  },
-];
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -56,11 +13,12 @@ function StarRating({ rating }: { rating: number }) {
       {[1, 2, 3, 4, 5].map((star) => (
         <Star
           key={star}
-          className={`w-5 h-5 ${
+          className={cn(
+            "w-5 h-5",
             star <= rating
               ? "fill-primary text-primary"
               : "fill-gray-200 text-gray-200"
-          }`}
+          )}
         />
       ))}
     </div>
@@ -113,16 +71,18 @@ function AuthorCard({ name, title, avatar, featured }: AuthorCardProps) {
       </div>
       <div>
         <h4
-          className={`font-semibold text-sm ${
+          className={cn(
+            "font-semibold text-sm",
             featured ? "text-white" : "text-gray-900"
-          }`}
+          )}
         >
           {name}
         </h4>
         <p
-          className={`text-xs ${
+          className={cn(
+            "text-xs",
             featured ? "text-white/80" : "text-gray-500"
-          }`}
+          )}
         >
           {title}
         </p>
@@ -131,7 +91,7 @@ function AuthorCard({ name, title, avatar, featured }: AuthorCardProps) {
   );
 }
 
-export function TestimonialsSection() {
+export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) {
   return (
     <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20 bg-white">
       {/* Header */}
@@ -144,10 +104,11 @@ export function TestimonialsSection() {
       {/* Testimonials Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {testimonials.map((testimonial) => (
-          <div className={`flex items-center gap-3 rounded-xl ${
-        testimonial.featured ? "bg-primary-2" : "bg-[#F9F9FB]"
-      }`}>
-          <div key={testimonial.id} className="flex flex-col">
+          <div className={cn(
+            "flex items-center gap-3 rounded-xl",
+            testimonial.featured ? "bg-primary-2" : "bg-[#F9F9FB]"
+          )} key={testimonial.id}>
+          <div className="flex flex-col">
             {/* Quote Card */}
             <QuoteCard
               rating={testimonial.rating}
