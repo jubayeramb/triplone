@@ -91,7 +91,7 @@ export function PopularDestinations() {
   };
 
   return (
-    <section className="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-16">
+    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-16">
       {/* Header */}
       <div className="flex items-start justify-between mb-10">
         <div>
@@ -109,7 +109,7 @@ export function PopularDestinations() {
             variant="outline"
             size="icon"
             onClick={handlePrevious}
-            className="w-10 h-10 rounded-full border-gray-300 hover:bg-gray-100"
+            className="w-10 h-10 bg-white rounded-full border-gray-300 hover:bg-gray-100"
           >
             <ChevronLeft className="w-5 h-5 text-gray-600" />
           </Button>

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function DiscoverSection() {
   return (
-    <section className="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-16 bg-white">
+    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-16 bg-white">
       {/* Header */}
       <div className="text-center max-w-4xl mx-auto mb-12">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -19,21 +19,22 @@ export function DiscoverSection() {
       </div>
 
       {/* Cards Container */}
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-0 max-w-6xl mx-auto">
+      <div className="flex flex-col lg:flex-row items-end justify-center max-w-6xl mx-auto relative">
         {/* Left Card - Find Your Destination */}
-        <div className="relative w-full lg:w-72 h-64 lg:h-80 rounded-2xl overflow-hidden group">
+        <div className="relative w-full lg:w-[420px] h-64 lg:h-[332px] rounded-2xl overflow-hidden group lg:-mr-8 z-0">
           <Image
-            src="/homepage/discover/map-bg.jpg"
+            src="/homepage/discover/bangladesh-map.png"
             alt="Map background"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-white/30" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-            <div className="w-12 h-12 rounded-full border-2 border-blue-500 flex items-center justify-center mb-4">
-              <MapPin className="w-5 h-5 text-blue-500" />
+          {/* White overlay for defocus effect */}
+          <div className="absolute inset-0 bg-white/60" />
+          <div className="absolute inset-0 flex flex-col items-start justify-between p-16">
+            <div className="w-14 h-14 rounded-full border-2 border-blue-500 flex items-center justify-center bg-white/80">
+              <MapPin className="w-6 h-6 text-blue-500" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 text-center">
+            <h3 className="text-xl font-bold text-gray-900 text-left leading-tight">
               Find Your
               <br />
               Destination
@@ -42,15 +43,15 @@ export function DiscoverSection() {
         </div>
 
         {/* Center Card - Book A Ticket */}
-        <div className="relative w-full lg:w-80 h-auto lg:-mx-6 z-10">
-          <div className="bg-blue-600 rounded-2xl p-6 lg:p-8 relative">
+        <div className="relative w-full lg:w-[420px] lg:h-[482px] z-20">
+          <div className="bg-blue-600 rounded-t-2xl p-8 pt-16 relative shadow-2xl h-full flex flex-col">
             {/* Ticket Icon */}
-            <div className="w-14 h-14 rounded-full border-2 border-white/30 flex items-center justify-center mb-4">
-              <Ticket className="w-6 h-6 text-white" />
+            <div className="w-16 h-16 rounded-full border-2 border-white/40 flex items-center justify-center mb-6 bg-blue-500/50">
+              <Ticket className="w-7 h-7 text-white" />
             </div>
 
-            {/* Circular Image */}
-            <div className="absolute top-4 right-4 w-28 h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-4 border-white">
+            {/* Circular Image - positioned in top right corner */}
+            <div className="absolute -top-7 -right-7 w-[215px] h-[215px] rounded-full overflow-hidden border-4 border-white shadow-xl">
               <Image
                 src="/homepage/discover/sunset.jpg"
                 alt="Sunset view"
@@ -60,21 +61,25 @@ export function DiscoverSection() {
             </div>
 
             {/* Content */}
-            <div className="mt-8">
-              <h3 className="text-2xl font-bold text-white mb-4">
+            <div className="flex flex-col flex-grow">
+              <h3 className="text-2xl font-bold text-white mb-5 leading-tight">
                 Book
                 <br />
                 A Ticket
               </h3>
-              <p className="text-white/80 text-sm leading-relaxed mb-6">
+              <p className="text-white/80 text-base leading-relaxed mb-6 max-w-[32  0px]">
                 Traveling Is A Wonderful Way To
                 Explore New Places. Learn
-                About Different Culture. And
+                About Differrent Culture. And
                 Gain Unique Experiences
               </p>
+
+              {/* Spacer to push LEARN MORE to bottom */}
+              <div className="flex-grow" />
+
               <a
                 href="#"
-                className="inline-flex items-center gap-2 text-white font-medium text-sm hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all tracking-wide"
               >
                 LEARN MORE
                 <ChevronRight className="w-4 h-4" />
@@ -84,19 +89,20 @@ export function DiscoverSection() {
         </div>
 
         {/* Right Card - Find Any Agency */}
-        <div className="relative w-full lg:w-72 h-64 lg:h-80 rounded-2xl overflow-hidden group">
+        <div className="relative w-full lg:w-[420px] h-64 lg:h-[332px] rounded-2xl overflow-hidden group lg:-ml-8 z-0">
           <Image
             src="/homepage/discover/city-bg.jpg"
             alt="City background"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/30" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-            <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center mb-4">
-              <MapPin className="w-5 h-5 text-white" />
+          {/* White overlay for defocus effect */}
+          <div className="absolute inset-0 bg-white/60" />
+          <div className="absolute inset-0 flex flex-col items-start justify-between px-24 py-16">
+            <div className="w-14 h-14 rounded-full border-2 border-blue-500 flex items-center justify-center bg-white/60">
+              <MapPin className="w-6 h-6 text-blue-500" />
             </div>
-            <h3 className="text-xl font-bold text-white text-center">
+            <h3 className="text-xl font-bold text-gray-900 text-left leading-tight">
               Find Any
               <br />
               Agency

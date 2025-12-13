@@ -5,3 +5,4 @@ export { DiscoverPromoSection } from "./discover-promo-section";
 export { FeaturesSection } from "./features-section";
 export { TestimonialsSection } from "./testimonials-section";
 export { HighlightsSection } from "./highlights-section";
+export { AboutUsSection } from "./about-us-section";

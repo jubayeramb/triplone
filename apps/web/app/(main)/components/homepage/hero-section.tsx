@@ -35,14 +35,14 @@ export function HeroSection() {
           {/* Hero Content */}
           <div className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-48">
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center text-gray-900 max-w-4xl leading-tight">
+            <h1 className="text-4xl sm:text-6xl font-semibold text-center text-white max-w-4xl leading-tight">
               Discover the hidden
               <br />
-              <span className="text-gray-900">beauty of Bangladesh</span>
+              <span className="text-white">beauty of Bangladesh</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-6 text-base sm:text-lg text-gray-700 text-center max-w-xl">
+            <p className="mt-6 text-base sm:text-lg text-white text-center max-w-xl">
               Plan your getaway with ease — we make every
               <br className="hidden sm:block" />
               step smooth and memorable.
@@ -50,7 +50,7 @@ export function HeroSection() {
 
             {/* CTA Button */}
             <Button
-              className="mt-8 px-8 py-3 bg-amber-400 hover:bg-amber-500 text-white font-semibold rounded-full text-base shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+              className="mt-8 px-8 py-6 bg-amber-400 hover:bg-amber-500 text-white font-medium rounded-full text-base shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
             >
               Explore Packages
             </Button>
@@ -58,30 +58,31 @@ export function HeroSection() {
 
           {/* Search Box - positioned at bottom of the rounded container */}
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 w-full max-w-2xl px-4">
-            <div className="bg-white rounded-2xl shadow-2xl p-4 sm:p-6">
-              {/* Tab */}
-              <div className="flex justify-center mb-4">
-                <div className="inline-flex items-center gap-2 px-6 py-2 bg-gray-50 rounded-full border border-gray-200">
-                  <Palmtree className="w-5 h-5 text-gray-600" />
-                  <span className="text-sm font-medium text-gray-700">Tour</span>
-                </div>
+            {/* Tour Tab - floating above the search box */}
+            <div className="flex justify-center -mb-5 relative z-10">
+              <div className="inline-flex items-center gap-2 px-8 py-3 bg-gray-100 rounded-full shadow-sm">
+                <Palmtree className="w-5 h-5 text-gray-700" />
+                <span className="text-sm font-medium text-gray-800">Tour</span>
               </div>
+            </div>
 
-              {/* Search Input */}
-              <div className="flex items-center gap-3">
-                <div className="flex-1">
-                  <label className="block text-xs text-gray-500 uppercase tracking-wide mb-1">
+            {/* Main Search Container */}
+            <div className="bg-white rounded-2xl shadow-2xl pt-8 pb-5 px-5 sm:px-6">
+              {/* Search Input Row */}
+              <div className="flex items-center gap-4">
+                <div className="flex-1 min-w-0 border border-gray-200 rounded-2xl px-4 py-2">
+                  <label className="block text-[11px] text-gray-400 uppercase tracking-wider font-normal">
                     Location/Tour
                   </label>
                   <Input
                     type="text"
                     placeholder="Cox's Bazar"
-                    className="w-full border-0 bg-transparent text-lg font-medium text-blue-600 placeholder:text-blue-600 focus-visible:ring-0 focus-visible:ring-offset-0 p-0"
+                    className="w-full border-0 shadow-none bg-transparent text-lg font-medium text-blue-500 placeholder:text-blue-500 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 h-auto"
                   />
                 </div>
                 <Button
                   size="icon"
-                  className="w-12 h-12 rounded-xl bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition-all duration-300 hover:shadow-xl flex-shrink-0"
+                  className="w-14 h-14 rounded-xl bg-blue-500 hover:bg-blue-600 text-white shadow-md transition-all duration-300 hover:shadow-lg flex-shrink-0"
                 >
                   <Search className="w-5 h-5" />
                 </Button>

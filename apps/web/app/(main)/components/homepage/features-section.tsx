@@ -25,13 +25,13 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-16 bg-white">
+    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-16 bg-white">
       {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <div className="text-center mx-auto mb-12">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-4">
           Discover The Bangladesh From Above
         </h2>
-        <p className="text-gray-500 text-sm sm:text-base">
+        <p className="text-gray-500 text-sm sm:text-base max-w-[700px] mx-auto">
           Traveling Is A Wonderful Way To Explore New Places. Learn About Different
           Culture. And Gain Unique Experiences
         </p>
@@ -44,7 +44,7 @@ export function FeaturesSection() {
           return (
             <div key={index} className="flex flex-col items-center text-center">
               {/* Icon */}
-              <div className="w-16 h-16 rounded-full border-2 border-cyan-400 flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-full border-2 bg-[#F9F9FB] border-cyan-400 flex items-center justify-center mb-6">
                 <IconComponent className="w-7 h-7 text-cyan-500" />
               </div>
 

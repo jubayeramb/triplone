@@ -3,6 +3,7 @@ import {
   PopularDestinations,
   DiscoverSection,
   DiscoverPromoSection,
+  AboutUsSection,
   FeaturesSection,
   TestimonialsSection,
   HighlightsSection,
@@ -15,6 +16,7 @@ export default function Home() {
       <PopularDestinations />
       <DiscoverSection />
       <DiscoverPromoSection />
+      <AboutUsSection />
       <FeaturesSection />
       <TestimonialsSection />
       <HighlightsSection />
