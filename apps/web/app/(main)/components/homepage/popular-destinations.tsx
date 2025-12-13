@@ -91,7 +91,7 @@ export function PopularDestinations() {
   };
 
   return (
-    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-16">
+    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20">
       {/* Header */}
       <div className="flex items-start justify-between mb-10">
         <div>

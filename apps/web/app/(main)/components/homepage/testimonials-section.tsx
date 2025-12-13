@@ -133,7 +133,7 @@ function AuthorCard({ name, title, avatar, featured }: AuthorCardProps) {
 
 export function TestimonialsSection() {
   return (
-    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-16 bg-white">
+    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20 bg-white">
       {/* Header */}
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900">

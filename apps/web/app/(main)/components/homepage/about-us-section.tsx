@@ -7,7 +7,7 @@ const stats = [
 
 export function AboutUsSection() {
   return (
-    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-16 bg-white">
+    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20 bg-white">
       <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 text-center mb-8">
         Traveling Is A Wonderful Way To Explore New Places. Learn
         <br className="hidden sm:block" />

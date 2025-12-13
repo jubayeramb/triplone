@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function DiscoverPromoSection() {
   return (
-    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-16 bg-white">
+    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20 bg-white">
       {/* Top Section - Promo Banner */}
       <div className="flex flex-col gap-6">
         {/* Top Row - Image and Content */}

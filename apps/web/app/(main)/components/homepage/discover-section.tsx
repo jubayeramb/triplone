@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function DiscoverSection() {
   return (
-    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-16 bg-white">
+    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20 bg-white">
       {/* Header */}
       <div className="text-center max-w-4xl mx-auto mb-12">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">

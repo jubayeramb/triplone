@@ -15,7 +15,7 @@ const highlights = [
 
 export function HighlightsSection() {
   return (
-    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-16 bg-white">
+    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20 bg-white">
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 max-w-5xl mx-auto">
         {highlights.map((highlight, index) => (
           <div key={index} className="flex items-center gap-6">

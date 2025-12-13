@@ -14,7 +14,7 @@ const FacebookIcon = () => (
 
 export function HeroSection() {
   return (
-    <div className="relative min-h-screen w-full bg-white">
+    <div className="relative min-h-screen w-full py-4 bg-white">
       {/* Hero Section */}
       <section className="relative w-full min-h-[90vh] px-4 sm:px-8 md:px-12 lg:px-16 pt-4">
         {/* Background Image Container with rounded corners */}
