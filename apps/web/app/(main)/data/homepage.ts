@@ -91,7 +91,7 @@ export const testimonials: Testimonial[] = [
       "Such A Modern, User-Friendly Platform! I Found My Saint Martin Tour In Minutes, Compared Prices, And Booked Confidently. Triplone Feels Like A Global-Quality App Built For Bangladeshi Travelers.",
     author: {
       name: "Apurbo",
-      title: "Unemployed Person",
+      title: "Student",
       avatar: "/homepage/testimonials/apurbo.jpg",
     },
   },
@@ -102,7 +102,7 @@ export const testimonials: Testimonial[] = [
       "Triplone Made My Cox's Bazar Trip So Easy! I Compared Several Agencies In One Place And Booked Within Minutes. Everything Was Clear, Verified, And Perfectly Organized. It Saved Me So Much Time And Effort.",
     author: {
       name: "Tayaba Rahman",
-      title: "Ui/Ux Designer",
+      title: "UI/UX Designer",
       avatar: "/homepage/testimonials/tayaba.jpg",
     },
     featured: true,
@@ -114,7 +114,7 @@ export const testimonials: Testimonial[] = [
       "I Love How Organized And Trustworthy Triplone Feels. The Comparison Option Helped Me Choose The Best Agency Easily. My Bandarban Trip Went Perfectly — Everything Matched What I Saw Online.",
     author: {
       name: "Jubayer",
-      title: "Depressed Patient",
+      title: "Software Engineer",
       avatar: "/homepage/testimonials/jubayer.jpg",
     },
   },

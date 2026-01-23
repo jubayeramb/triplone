@@ -14,7 +14,7 @@ function StarRating({ rating }: { rating: number }) {
         <Star
           key={star}
           className={cn(
-            "w-5 h-5",
+            "h-5 w-5",
             star <= rating
               ? "fill-primary text-primary"
               : "fill-gray-200 text-gray-200"
@@ -28,23 +28,18 @@ function StarRating({ rating }: { rating: number }) {
 interface QuoteCardProps {
   rating: number;
   content: string;
-  featured?: boolean;
 }
 
 function QuoteCard({ rating, content }: QuoteCardProps) {
   return (
-    <div
-      className={"px-8 py-16 min-h-[200px] bg-[#F9F9FB] rounded-xl"}
-    >
+    <div className={"min-h-[200px] rounded-xl bg-[#F9F9FB] px-8 py-16"}>
       {/* Rating */}
       <div className="mb-6">
         <StarRating rating={rating} />
       </div>
 
       {/* Content */}
-      <p className="text-gray-600 text-sm leading-relaxed">
-        {content}
-      </p>
+      <p className="text-sm leading-relaxed text-gray-600">{content}</p>
     </div>
   );
 }
@@ -58,21 +53,14 @@ interface AuthorCardProps {
 
 function AuthorCard({ name, title, avatar, featured }: AuthorCardProps) {
   return (
-    <div
-    className="p-8 space-y-2"
-    >
-      <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
-        <Image
-          src={avatar}
-          alt={name}
-          fill
-          className="object-cover"
-        />
+    <div className="space-y-2 p-8">
+      <div className="relative h-10 w-10 flex-shrink-0 overflow-hidden rounded-full bg-gray-200">
+        <Image src={avatar} alt={name} fill className="object-cover" />
       </div>
       <div>
         <h4
           className={cn(
-            "font-semibold text-sm",
+            "text-sm font-semibold",
             featured ? "text-white" : "text-gray-900"
           )}
         >
@@ -91,38 +79,42 @@ function AuthorCard({ name, title, avatar, featured }: AuthorCardProps) {
   );
 }
 
-export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) {
+export function TestimonialsSection({
+  testimonials,
+}: TestimonialsSectionProps) {
   return (
-    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20 bg-white">
+    <section className="w-full bg-white px-8 py-20 sm:px-12 md:px-20 lg:px-32">
       {/* Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900">
-          Loved By Thousands Travelers
+      <div className="mb-12 text-center">
+        <h2 className="text-3xl font-semibold text-gray-900 sm:text-4xl md:text-5xl">
+          Loved By Thousands Of Travelers
         </h2>
       </div>
 
       {/* Testimonials Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {testimonials.map((testimonial) => (
-          <div className={cn(
-            "flex items-center gap-3 rounded-xl",
-            testimonial.featured ? "bg-primary-2" : "bg-[#F9F9FB]"
-          )} key={testimonial.id}>
-          <div className="flex flex-col">
-            {/* Quote Card */}
-            <QuoteCard
-              rating={testimonial.rating}
-              content={testimonial.content}
-              featured={testimonial.featured}
-            />
+          <div
+            className={cn(
+              "flex items-center gap-3 rounded-xl",
+              testimonial.featured ? "bg-primary-2" : "bg-[#F9F9FB]"
+            )}
+            key={testimonial.id}
+          >
+            <div className="flex flex-col">
+              {/* Quote Card */}
+              <QuoteCard
+                rating={testimonial.rating}
+                content={testimonial.content}
+              />
 
-            {/* Author Card */}
-            <AuthorCard
-              name={testimonial.author.name}
-              title={testimonial.author.title}
-              avatar={testimonial.author.avatar}
-              featured={testimonial.featured}
-            />
+              {/* Author Card */}
+              <AuthorCard
+                name={testimonial.author.name}
+                title={testimonial.author.title}
+                avatar={testimonial.author.avatar}
+                featured={testimonial.featured}
+              />
             </div>
           </div>
         ))}

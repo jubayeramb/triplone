@@ -7,12 +7,12 @@ interface HighlightsSectionProps {
 
 export function HighlightsSection({ highlights }: HighlightsSectionProps) {
   return (
-    <section className="w-full px-8 sm:px-12 md:px-20 lg:px-32 py-20 bg-white">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 max-w-5xl mx-auto">
-        {highlights.map((highlight, index) => (
-          <div key={index} className="flex items-center gap-6">
+    <section className="w-full bg-white px-8 py-20 sm:px-12 md:px-20 lg:px-32">
+      <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-12 md:flex-row md:gap-24">
+        {highlights.map((highlight) => (
+          <div key={highlight.title} className="flex items-center gap-6">
             {/* Circular Image */}
-            <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden flex-shrink-0">
+            <div className="relative h-32 w-32 flex-shrink-0 overflow-hidden rounded-full sm:h-40 sm:w-40">
               <Image
                 src={highlight.image}
                 alt={highlight.title}
@@ -23,7 +23,7 @@ export function HighlightsSection({ highlights }: HighlightsSectionProps) {
 
             {/* Text */}
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
+              <h3 className="text-xl font-semibold text-gray-900 sm:text-2xl">
                 {highlight.title}
                 <br />
                 {highlight.subtitle}

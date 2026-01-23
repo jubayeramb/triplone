@@ -26,11 +26,11 @@
     "dev:api": "turbo run dev --filter=@triplone/api"
   },
   "devDependencies": {
-    "@turbo/gen": "^2.5.8",
-    "eslint": "^9.37.0",
-    "prettier": "^3.6.2",
+    "@turbo/gen": "^2.7.5",
+    "eslint": "^9.39.2",
+    "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "turbo": "^2.5.8",
+    "turbo": "^2.7.5",
     "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@10.18.0",
