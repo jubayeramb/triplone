@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@triplone/ui": "workspace:*",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "next": "16.0.0"
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "next": "16.1.4"
   },
   "devDependencies": {
     "@triplone/tailwind-config": "workspace:*",
@@ -20,16 +20,18 @@
     "@triplone/eslint-config": "workspace:*",
     "typescript": "^5",
     "@types/node": "24.7.1",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "19.2.2",
+    "@types/react": "19.2.9",
+    "@types/react-dom": "19.2.3",
     "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4",
     "eslint": "^9",
-    "eslint-config-next": "16.0.0",
+    "eslint-config-next": "16.1.4",
     "@eslint/eslintrc": "^3"
   },
   "pnpm": {
     "overrides": {
+      "@types/react": "19.2.9",
+      "@types/react-dom": "19.2.3"
     }
   }
 }
