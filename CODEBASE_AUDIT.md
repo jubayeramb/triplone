@@ -1,6 +1,6 @@
 # Triplone Codebase Audit
 
-> **Date:** Feb 19, 2026  
+> **Date:** Feb 19, 2026 (updated after PR #7/#8/#9 review)  
 > **Scope:** Full monorepo scan — all apps, packages, and tooling  
 > **Purpose:** Pre-implementation review — understand what exists, what works, what needs fixing before next feature cycle
 
@@ -137,7 +137,7 @@ src/
 ### What Exists
 
 **Framework:** Next.js 16, App Router, React 19, Tailwind v4, Turbopack  
-**Total:** ~101 TypeScript files, ~5,200 lines
+**Total:** ~72 TypeScript files, ~4,860 lines
 
 **Route Structure:**
 
@@ -202,7 +202,7 @@ All data is hardcoded TypeScript objects/arrays. No API calls, no server actions
 
 **CRITICAL:**
 
-- **Duplicate route directories** — `app/customer/` (no route group) and `app/(customer)/` (route group) both exist with identical files. The `app/customer/` directory is the old version and must be deleted.
+- ~~**Duplicate route directories**~~ ✅ **RESOLVED** — `app/customer/` was deleted (commit `b363d14`). Only `app/(customer)/` remains.
 - **No authentication** — All pages are publicly accessible. No middleware, no session check.
 - **No API integration** — 100% mock data. Nothing connects to `apps/api`.
 
@@ -229,29 +229,67 @@ All data is hardcoded TypeScript objects/arrays. No API calls, no server actions
 
 ### What Exists
 
+**Framework:** Next.js 16, App Router, React 19, Tailwind v4, Turbopack  
+**Total:** ~16 TypeScript files, ~4,500 lines  
+**Dependencies:** `@triplone/ui`, `next`, `react`, `react-dom`, `lucide-react`
+
+**Route Structure:**
+
 ```
-apps/dashboard/
-├── app/
-│   ├── layout.tsx   → Root layout (Geist font)
-│   └── page.tsx     → Placeholder home page with Button/Input/Dialog demo
-└── eslint.config.js
+app/
+├── layout.tsx               → Root layout (Geist font) + SidebarProvider wrapper
+├── page.tsx                 → Agency overview: stats cards, recent bookings, revenue chart, popular tours
+├── sidebar/
+│   ├── app-sidebar.tsx      → Main sidebar: nav sections, user menu, team switcher
+│   ├── dynamic-breadcrumb.tsx → Auto breadcrumbs from route path
+│   ├── nav-main.tsx         → Collapsible nav groups (Dashboard, Tours, Customers, etc.)
+│   ├── nav-projects.tsx     → Agency quick-links section
+│   ├── nav-user.tsx         → User dropdown (profile, billing, notifications, logout)
+│   └── team-switcher.tsx    → Agency switcher dropdown
+├── analytics/page.tsx       → Revenue analytics: overview cards, revenue chart, booking trends, tour performance table
+├── customers/
+│   ├── page.tsx             → Customer list with search, status filter, stats cards, table
+│   └── [id]/
+│       ├── page.tsx         → Customer profile: info card, stats, recent bookings, activity
+│       ├── bookings/page.tsx → Customer booking history with stats & table
+│       └── message/page.tsx  → Customer messaging interface with chat UI
+├── payments/page.tsx        → Payment transactions: stats cards, filterable transaction table
+├── settings/page.tsx        → 4-tab settings: General, Notifications, Security, Billing
+└── tours/
+    └── create/page.tsx      → Tour creation form: basic info, itinerary, pricing, images
 ```
 
-**Status:** Effectively a blank placeholder. The `page.tsx` is a default shadcn/ui component demo ("Welcome to Triplone Dashboard!") with no real functionality.
+**Pages Implemented:**
 
-**Dependencies:** `@triplone/ui`, `next`, `react`, `react-dom` — identical to `apps/web` but with no auth or db.
+| Route                      | Description                                    | Data      |
+| -------------------------- | ---------------------------------------------- | --------- |
+| `/`                        | Agency overview with stats, bookings, revenue  | Mock      |
+| `/analytics`               | Revenue, booking trends, tour performance      | Mock      |
+| `/customers`               | Customer list with search & filter             | Mock      |
+| `/customers/[id]`          | Customer profile with stats & activity         | Mock      |
+| `/customers/[id]/bookings` | Customer's booking history                     | Mock      |
+| `/customers/[id]/message`  | Chat/messaging interface                       | Mock      |
+| `/payments`                | Payment transaction list with stats            | Mock      |
+| `/settings`                | General, Notifications, Security, Billing tabs | Mock      |
+| `/tours/create`            | Tour creation multi-section form               | Static UI |
+
+**Architecture Patterns:**
+
+- Sidebar layout with `SidebarProvider` + `SidebarInset` (same pattern as `apps/web` customer dashboard)
+- Collapsible nav groups with sub-items
+- Dynamic breadcrumbs generated from URL path segments
+- Consistent card-based layout for stats and data display
+- All data is hardcoded mock — same `// Mock data` pattern as `apps/web`
 
 ### What's Missing
 
-Everything. This needs to be built from scratch:
-
-- Authentication (agency owner, agency staff, moderator, super_admin roles)
-- Tour/package management
-- Booking management
-- Agency management & verification
-- Analytics dashboard
-- User management
-- Content management
+- **No authentication** — All pages are publicly accessible. No role-based access (agency_owner, agency_staff, moderator, super_admin).
+- **No API integration** — 100% mock data. Nothing connects to `apps/api`.
+- **No tour list/edit pages** — Only tour creation exists. No tour listing, detail view, or edit functionality.
+- **No booking management** — Bookings appear in stats/tables but there's no dedicated booking management page.
+- **No agency management** — No agency profile, verification status, or agency settings.
+- **No form submission logic** — Tour creation and settings forms render but don't submit anywhere.
+- **No real-time features** — Messaging page is a static UI, no WebSocket or real-time chat.
 
 ---
 
@@ -393,7 +431,7 @@ export const authClient = createAuthClient({
 
 ### What Exists
 
-**16 components:**
+**18 components** (+ `lib/utils.ts`, `hooks/use-mobile.tsx`):
 
 | Component           | Notes                                                                       |
 | ------------------- | --------------------------------------------------------------------------- |
@@ -402,16 +440,18 @@ export const authClient = createAuthClient({
 | `breadcrumb.tsx`    | Navigation breadcrumbs                                                      |
 | `button.tsx`        | 6 variants (default, destructive, outline, secondary, ghost, link), 4 sizes |
 | `card.tsx`          | Card + CardHeader/Footer/Content/Description                                |
-| `collapsible.tsx`   | Expand/collapse section                                                     |
+| `collapsible.tsx`   | Expand/collapse section (Radix API fixed)                                   |
 | `dialog.tsx`        | Modal dialog                                                                |
 | `dropdown-menu.tsx` | Context menu/dropdown                                                       |
 | `input.tsx`         | Form text input                                                             |
 | `label.tsx`         | Form label                                                                  |
+| `select.tsx`        | ✨ Radix Select with trigger, content, item, groups                         |
 | `separator.tsx`     | Visual divider                                                              |
 | `sheet.tsx`         | Side drawer                                                                 |
-| `sidebar.tsx`       | Full sidebar system (21KB — heavily used in apps/web)                       |
+| `sidebar.tsx`       | Full sidebar system (21KB — used in apps/web + apps/dashboard)              |
 | `skeleton.tsx`      | Loading placeholder                                                         |
 | `switch.tsx`        | Toggle switch                                                               |
+| `textarea.tsx`      | ✨ Multi-line text input                                                    |
 | `tooltip.tsx`       | Hover tooltip                                                               |
 
 **Utilities & hooks:**
@@ -439,8 +479,6 @@ All imports must use deep paths: `@triplone/ui/components/button`. A barrel expo
 | Component         | Why Needed                                              |
 | ----------------- | ------------------------------------------------------- |
 | `form.tsx`        | React Hook Form integration — needed for all form pages |
-| `select.tsx`      | Settings dropdowns (language, currency, timezone)       |
-| `textarea.tsx`    | Bio, address, description fields                        |
 | `checkbox.tsx`    | Multi-select options                                    |
 | `radio-group.tsx` | Privacy settings, single-choice options                 |
 | `table.tsx`       | Booking lists, admin data tables                        |
@@ -549,8 +587,8 @@ These must be fixed before any new feature is built on top of them.
 
 ### 🔴 CRITICAL
 
-**1. Duplicate customer routes in `apps/web`**  
-Both `app/customer/` and `app/(customer)/` exist with identical files. The `app/customer/` directory (non-route-group) is the old version — it creates real URL routes at `/customer/*`. The `app/(customer)/` route group is the intended structure. **Delete `app/customer/` immediately.** In Next.js App Router, both currently resolve to the same URL paths, so one will shadow or conflict with the other.
+**1. ~~Duplicate customer routes in `apps/web`~~** ✅ **RESOLVED**  
+~~Both `app/customer/` and `app/(customer)/` existed with identical files.~~ The duplicate `app/customer/` directory (46 files) was deleted in commit `b363d14`.
 
 **2. All API route handlers are empty**  
 `apps/api/src/routes/users/index.ts` registers 3 routes with `() => {}` handlers. No route returns actual data. The API technically runs and documents itself but doesn't function.
@@ -591,7 +629,7 @@ Ordered by priority. Complete these before adding major new features.
 
 | #   | Task                                                                                                               | Where              | Why                         |
 | --- | ------------------------------------------------------------------------------------------------------------------ | ------------------ | --------------------------- |
-| 1   | Delete `apps/web/app/customer/` (old non-group routes)                                                             | apps/web           | Routing conflict            |
+| 1   | ~~Delete `apps/web/app/customer/` (old non-group routes)~~                                                         | ~~apps/web~~       | ✅ Done (commit `b363d14`)  |
 | 2   | Delete `apps/api/src/routes/index.route.ts` and remove from `app.ts`                                               | apps/api           | Duplicate conflicting route |
 | 3   | Run `npx @better-auth/cli generate` → add output to `packages/db/src/schema/`                                      | packages/auth + db | Auth requires tables        |
 | 4   | Run `pnpm db:gen` + `pnpm db:push`                                                                                 | packages/db        | No DB tables exist          |
@@ -615,7 +653,7 @@ Ordered by priority. Complete these before adding major new features.
 | #   | Task                                                                                    | Where       | Why                          |
 | --- | --------------------------------------------------------------------------------------- | ----------- | ---------------------------- |
 | 14  | Define remaining DB schemas (agencies, tours, bookings, reviews, payments, etc.)        | packages/db | No data model                |
-| 15  | Add missing UI components: `form`, `select`, `textarea`, `toast`, `tabs`, `table`       | packages/ui | Needed for forms             |
+| 15  | Add missing UI components: `form`, `toast`, `tabs`, `table` (`select` + `textarea` ✅)  | packages/ui | Needed for forms             |
 | 16  | Replace mock data in `apps/web` with real API calls                                     | apps/web    | All data is hardcoded        |
 | 17  | Add pagination to `GET /users` (and future list endpoints)                              | apps/api    | Will break at scale          |
 | 18  | Add `/health` endpoint to `apps/api`                                                    | apps/api    | Needed for deployment checks |
@@ -640,10 +678,11 @@ Ordered by priority. Complete these before adding major new features.
 | OpenAPI/Swagger documentation          | ✅ Auto-generated from routes  |
 | Hono route/handler separation pattern  | ✅ Good architecture           |
 | Docker multi-stage build for API       | ✅ Production-ready build      |
-| 16 shadcn/ui components                | ✅ Available and styled        |
+| 18 shadcn/ui components                | ✅ Available and styled        |
 | Homepage UI                            | ✅ Complete (static)           |
 | Customer dashboard UI (all 5 sections) | ✅ Complete (mock data)        |
 | Blog UI                                | ✅ Complete (mock data)        |
+| Agency dashboard UI (9 pages)          | ✅ Complete (mock data)        |
 | Roles defined (6 roles)                | ✅ Enum in DB schema           |
 | Better-Auth configuration              | ✅ Configured (not wired)      |
 | tsup build pipeline                    | ✅ Optimized ESM output        |
@@ -651,21 +690,21 @@ Ordered by priority. Complete these before adding major new features.
 
 ### Not Ready
 
-| What                        | Gap                      |
-| --------------------------- | ------------------------ |
-| API route handlers          | All empty                |
-| Authentication              | Configured, not wired up |
-| Database migrations         | Never run                |
-| Better-Auth DB tables       | Not in schema            |
-| Protected routes            | None exist               |
-| Real data in frontend       | All mock                 |
-| Login/signup pages          | Don't exist              |
-| Tour/booking/agency schemas | Don't exist              |
-| Admin dashboard             | Blank placeholder        |
-| Email service               | Not integrated           |
-| Tests                       | Zero test files          |
-| CORS                        | Not configured           |
-| Rate limiting               | Not configured           |
+| What                        | Gap                               |
+| --------------------------- | --------------------------------- |
+| API route handlers          | All empty                         |
+| Authentication              | Configured, not wired up          |
+| Database migrations         | Never run                         |
+| Better-Auth DB tables       | Not in schema                     |
+| Protected routes            | None exist                        |
+| Real data in frontend       | All mock                          |
+| Login/signup pages          | Don't exist                       |
+| Tour/booking/agency schemas | Don't exist                       |
+| Admin dashboard             | UI built (mock data, no auth/API) |
+| Email service               | Not integrated                    |
+| Tests                       | Zero test files                   |
+| CORS                        | Not configured                    |
+| Rate limiting               | Not configured                    |
 
 ---
 
@@ -674,17 +713,17 @@ Ordered by priority. Complete these before adding major new features.
 | Package                   | TS Files | Approx Lines |
 | ------------------------- | -------- | ------------ |
 | apps/api                  | 8        | ~191         |
-| apps/web                  | 101      | ~5,200       |
-| apps/dashboard            | 3        | ~60          |
+| apps/web                  | 72       | ~4,860       |
+| apps/dashboard            | 20       | ~4,500       |
 | packages/db               | 7        | ~150         |
 | packages/auth             | 2        | ~40          |
-| packages/ui               | 20       | ~2,000       |
+| packages/ui               | 21       | ~1,975       |
 | tooling/env               | 4        | ~100         |
 | tooling/eslint-config     | 3        | ~80          |
 | tooling/typescript-config | 3        | JSON         |
 | tooling/tailwind-config   | 2        | ~100         |
-| **Total**                 | **~153** | **~8,000**   |
+| **Total**                 | **~142** | **~12,000**  |
 
 ---
 
-_This document was generated from a full automated scan of the repository on Feb 19, 2026._
+_This document was generated from a full automated scan of the repository on Feb 19, 2026. Last updated after PR #7/#8/#9 review and merge._
