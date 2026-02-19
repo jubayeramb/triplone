@@ -25,7 +25,7 @@ export const blogPosts: BlogPost[] = [
     id: "1",
     title: "Discover the Hidden Gems of Cox's Bazar: A Complete Travel Guide",
     excerpt:
-      "Explore beyond the beaches and discover the untold stories of Cox's bazar . from local market to secret viewpoints that will take you breath away",
+      "Explore beyond the beaches and discover the untold stories of Cox's Bazar . from local market to secret viewpoints that will take your breath away",
     image: "/blog/latest-blog-image.webp",
     date: "January 15, 2025",
     author: "Rafiq Ahmed",

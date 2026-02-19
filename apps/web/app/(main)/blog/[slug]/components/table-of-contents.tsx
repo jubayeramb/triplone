@@ -15,7 +15,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
       <div className="rounded-lg bg-[#EEF7F7] p-6">
         <div className="mb-6 flex items-center gap-2">
           <h3 className="text-lg font-semibold text-[#1A3D3D]">
-            Table of content
+            Table of Contents
           </h3>
           <Badge
             variant="secondary"

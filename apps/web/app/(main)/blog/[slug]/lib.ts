@@ -39,7 +39,7 @@ export const blogSections: BlogSection[] = [
   },
   {
     id: "local-culture",
-    title: "Local Culture And Cuisine",
+    title: "Local Culture and Cuisine",
     type: "h2",
     content:
       "No visit to Cox's Bazar is complete without experiencing the local culture and trying the delicious seafood. The fishing villages along the coast offer an authentic glimpse into the lives of local fishermen.",

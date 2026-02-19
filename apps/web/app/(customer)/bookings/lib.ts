@@ -2,7 +2,7 @@
 export const bookingSummary = {
   completedTours: 3,
   upcomingTours: 1,
-  totalSpent: 71000,
+  totalSpent: 95000,
   destinationsVisited: 3,
 };
 

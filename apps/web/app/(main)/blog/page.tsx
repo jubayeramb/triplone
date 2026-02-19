@@ -6,15 +6,16 @@ import { BlogCard } from "./components/blog-card";
 import { CTASection } from "./components/cta-section";
 
 export default function BlogPage() {
-  const featuredPost = blogPosts[0]!;
+  const featuredPost = blogPosts[0];
+  if (!featuredPost) return null;
   const gridPosts = blogPosts.slice(1);
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid lg:grid-cols-2 gap-12">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2">
             {/* Featured Post */}
             <div>
               <FeaturedPost post={featuredPost} />
@@ -29,12 +30,12 @@ export default function BlogPage() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Category Filter */}
         <CategoryFilter categories={categories} />
 
         {/* Blog Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {gridPosts.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
