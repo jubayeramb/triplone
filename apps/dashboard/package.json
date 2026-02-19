@@ -10,9 +10,10 @@
   },
   "dependencies": {
     "@triplone/ui": "workspace:*",
+    "lucide-react": "^0.475.0",
+    "next": "16.1.4",
     "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "next": "16.1.4"
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@triplone/tailwind-config": "workspace:*",
